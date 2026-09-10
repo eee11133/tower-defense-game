@@ -1,0 +1,11 @@
+[
+{"id":1,"res":"Weapon/Handgun1","atk":2,"animator":"Animator/Role/Handgun","bulletNum":10,"type":1,"range":20,"hitBack":1,"hitEff":"eff/1"},
+{"id":2,"res":"Weapon/Heavy1","atk":8,"animator":"Animator/Role/Heavy","bulletNum":10,"type":1,"range":15,"hitBack":1,"hitEff":"eff/1"},
+{"id":3,"res":"Weapon/Infantry1","atk":5,"animator":"Animator/Role/Infantry","bulletNum":8,"type":1,"range":30,"hitBack":1,"hitEff":"eff/1"},
+{"id":4,"res":"Weapon/Knife1","atk":1,"animator":"Animator/Role/Knifel","bulletNum":-1,"type":1,"range":0,"hitBack":1,"hitEff":"eff/1"},
+{"id":5,"res":"Weapon/Machinegun1","atk":2,"animator":"Animator/Role/Machinegun","bulletNum":50,"type":1,"range":10,"hitBack":1,"hitEff":"eff/1"},
+{"id":6,"res":"Weapon/RocketLauncher1","atk":10,"animator":"Animator/Role/RocketLauncher","bulletNum":5,"type":1,"range":10,"hitBack":1,"hitEff":"eff/1"},
+{"id":7,"res":"Weapon/Boom1","atk":50,"animator":"","bulletNum":1,"type":2,"range":5,"hitBack":2,"hitEff":"eff/1"},
+{"id":8,"res":"Weapon/Boom2","atk":20,"animator":"","bulletNum":2,"type":2,"range":5,"hitBack":2,"hitEff":"eff/1"},
+{"id":9,"res":"Weapon/Boom3","atk":10,"animator":"","bulletNum":3,"type":2,"range":5,"hitBack":2,"hitEff":"eff/1"}
+]

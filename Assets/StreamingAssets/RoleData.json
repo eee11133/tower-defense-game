@@ -1,0 +1,5 @@
+[
+{"id":1,"res":"Role/1","defaultWeapon":4,"lockMoney":0,"hp":100,"tips":"最帅气的男人"},
+{"id":2,"res":"Role/2","defaultWeapon":3,"lockMoney":0,"hp":100,"tips":"最威猛的男人"},
+{"id":3,"res":"Role/3","defaultWeapon":2,"lockMoney":100,"hp":100,"tips":"最善良的男人"}
+]

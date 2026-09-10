@@ -1,0 +1,47 @@
+# ====================== Unity 自动生成目录（本地缓存，绝不提交） ======================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Ll]ocal[Cc]onfig/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# ====================== Visual Studio / Rider / VSCode ======================
+.vs/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# ====================== 系统文件 ======================
+.DS_Store
+Thumbs.db
+sysinfo.txt
+
+# ====================== 本项目特定 ======================
+# 第三方 Asset Store 美术素材源包（约 3GB，含版权，不入库；
+# 运行所需的角色/塔/特效/音效等资源均在 Assets/Resources 中）
+[Aa]ssets/[Aa]rt[Rr]es/
+[Aa]ssets/[Aa]rt[Rr]es.meta
+
+# 转码前的本地备份目录（Assets 外）
+_BackupBeforeUtf8Convert/
