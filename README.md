@@ -6,6 +6,16 @@
 
 ---
 
+## 演示视频
+
+**在线观看**：[https://eee11133.github.io/tower-defense-game/](https://eee11133.github.io/tower-defense-game/)
+
+下方为直链预览（GitHub README 会自动渲染为播放器）：
+
+https://github.com/eee11133/tower-defense-game/raw/main/docs/video/demo.mp4
+
+---
+
 ## 游戏玩法
 
 - **塔防核心**：怪物由多个出生点按波次生成，沿 NavMesh 寻路进攻主塔；玩家在建造点花费金币建造炮塔（单体/范围两种攻击模式），并可逐级升级
