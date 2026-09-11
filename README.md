@@ -22,7 +22,7 @@ Unity、C#、UGUI、NavMesh 寻路、Animator 动画事件、LitJson / JsonUtili
 
 ## 核心技术亮点
 
-- **自研 UI 管理框架**：基于泛型反射（`ShowPanel<T>()`）+ Dictionary 缓存实现 UIManager 面板管理，CanvasGroup.alpha 控制淡入淡出过渡与回调销毁，Canvas 节点 DontDestroyOnLoad 跨场景持久化，统一管理全流程 8+ 个 UI 面板；BasePanel 采用模板方法模式，子类仅需重写 Init 绑定事件。
+- ** UI 管理框架**：基于泛型反射（`ShowPanel<T>()`）+ Dictionary 缓存实现 UIManager 面板管理，CanvasGroup.alpha 控制淡入淡出过渡与回调销毁，Canvas 节点 DontDestroyOnLoad 跨场景持久化，统一管理全流程 8+ 个 UI 面板；BasePanel 采用模板方法模式，子类仅需重写 Init 绑定事件。
 
 - **JSON 数据驱动与存档体系**：角色、塔、怪物、武器等 7 类配置以纯 C# POCO 类 + JSON 存储，配置与逻辑分离；封装 JsonMgr 支持 LitJson / JsonUtility 双方案切换（策略模式），采用 StreamingAssets（只读默认配置）+ PersistentDataPath（可写存档）双路径读取，配置热更与玩家存档分离。
 
@@ -32,7 +32,7 @@ Unity、C#、UGUI、NavMesh 寻路、Animator 动画事件、LitJson / JsonUtili
 
 - **通用特效对象池（EffectMgr）**：按 Resources 路径分桶 Queue 复用 + 预制体字典缓存 + 协程定时回收，替代高频 Instantiate/Destroy；设计**双层容量策略**（总实例数硬上限防同屏特效爆炸 + 空闲队列上限保证峰值后内存回落），并完成拒绝式与固定容量抢占式（LRU 轮询覆盖）两种池满策略的选型分析；处理循环粒子复用的 Stop+Clear 状态重置，战斗高频特效 GC Alloc 降至接近 0。
 
-- **战斗系统深度优化**：重写玩家射击目标选择算法，从"列表顺序取第一只"改为**两级择优**（视野锥 60° 内距离最近优先、退而取前方半区视线夹角最小），解决背后目标霸占锁定位导致面前敌人无法命中的问题；修复鼠标转向输入与帧率² 相关的 Bug（Mouse X 帧增量被重复乘 deltaTime）；实现 isGameOver 全局状态冻结机制（各系统 Update 轮询 + CancelInvoke 停刷怪），统一胜负结算链路。
+- **战斗系统深度优化**：重写玩家射击目标选择算法，从"列表顺序取第一只"改为**两级择优**（视野锥 60° 内距离最近优先、退而取前方半区视线夹角最小），解决背后目标霸占锁定位导致面前敌人无法命中的问题；实现 isGameOver 全局状态冻结机制（各系统 Update 轮询 + CancelInvoke 停刷怪），统一胜负结算链路。
 
 ---
 
