@@ -22,7 +22,7 @@ Unity、C#、UGUI、NavMesh 寻路、Animator 动画事件、LitJson / JsonUtili
 
 ## 核心技术亮点
 
-- ** UI 管理框架**：基于泛型反射（`ShowPanel<T>()`）+ Dictionary 缓存实现 UIManager 面板管理，CanvasGroup.alpha 控制淡入淡出过渡与回调销毁，Canvas 节点 DontDestroyOnLoad 跨场景持久化，统一管理全流程 8+ 个 UI 面板；BasePanel 采用模板方法模式，子类仅需重写 Init 绑定事件。
+- **UI 管理框架**：基于泛型反射（`ShowPanel<T>()`）+ Dictionary 缓存实现 UIManager 面板管理，CanvasGroup.alpha 控制淡入淡出过渡与回调销毁，Canvas 节点 DontDestroyOnLoad 跨场景持久化，统一管理全流程 8+ 个 UI 面板；BasePanel 采用模板方法模式，子类仅需重写 Init 绑定事件。
 
 - **JSON 数据驱动与存档体系**：角色、塔、怪物、武器等 7 类配置以纯 C# POCO 类 + JSON 存储，配置与逻辑分离；封装 JsonMgr 支持 LitJson / JsonUtility 双方案切换（策略模式），采用 StreamingAssets（只读默认配置）+ PersistentDataPath（可写存档）双路径读取，配置热更与玩家存档分离。
 
