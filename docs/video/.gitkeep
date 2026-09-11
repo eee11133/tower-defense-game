@@ -1,0 +1,6 @@
+# 此文件仅用于让 Git 跟踪 docs/video/ 目录。
+# 录制好 demo.mp4 后，将其放入此目录，然后：
+#   git add docs/video/demo.mp4
+#   git commit -m "add gameplay demo video"
+#   git push
+# 注意：若视频 >50MB，建议改用 Git LFS（见仓库 README）。

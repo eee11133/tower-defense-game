@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>塔防游戏 - Gameplay 演示</title>
+    <style>
+        /* 简洁暗色风格，加载快，适合 HR 快速查看 */
+        :root {
+            --bg: #0d1117;
+            --card: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --muted: #8b949e;
+            --accent: #58a6ff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                         "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 8px;
+            color: #fff;
+        }
+        .subtitle {
+            color: var(--muted);
+            font-size: 1rem;
+            margin: 0;
+        }
+        .video-wrap {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        /* 视频自适应：16:9 比例，移动端不溢出 */
+        .video-player {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-player video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        /* 视频未上传时的占位提示 */
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+            color: var(--muted);
+            background: #000;
+        }
+        .video-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+        .video-placeholder .hint {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 420px;
+        }
+        .meta {
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+        .meta-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 16px;
+        }
+        .meta-item .label {
+            color: var(--muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .meta-item .value {
+            color: #fff;
+            font-size: 0.95rem;
+        }
+        .desc {
+            margin-top: 32px;
+            padding: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+        }
+        .desc h2 {
+            margin: 0 0 12px;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .desc ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .desc li { margin-bottom: 6px; }
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tower Defense Game</h1>
+            <p class="subtitle">Unity 制作 · 第三人称塔防 · Gameplay 演示</p>
+        </header>
+
+        <!--
+            视频播放区。
+            当前使用占位样式：如果 docs/video/demo.mp4 不存在，<video> 找不到 source
+            不会自动渲染播放器，所以用 CSS 占位层提示"视频未上传"。
+            录制完成后：
+              1. 把视频命名为 demo.mp4 放到 docs/video/ 目录
+              2. 提交并推送：git add docs/video/demo.mp4 && git commit -m "add demo" && git push
+              3. 等待 1~2 分钟 GitHub Pages 部署完成，刷新本页即可播放
+            若视频 >50MB，建议改用 Git LFS（见仓库 README 或仓库 Wiki 的说明）
+        -->
+        <div class="video-wrap">
+            <div class="video-player">
+                <!--
+                    注意：source 标签的 src 是相对 docs/index.html 的路径
+                    GitHub Pages 会从仓库 docs/ 目录提供静态资源
+                -->
+                <video controls preload="metadata" playsinline>
+                    <source src="video/demo.mp4" type="video/mp4" />
+                </video>
+                <!-- 占位提示层，视频加载后会自动被 video 覆盖；视频缺失时显示 -->
+                <div class="video-placeholder" id="placeholder">
+                    <div class="icon">▶</div>
+                    <div class="hint">
+                        演示视频尚未上传<br />
+                        录制完成后将 <code>demo.mp4</code> 放入仓库的
+                        <code>docs/video/</code> 目录并推送即可。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="meta">
+            <div class="meta-item">
+                <div class="label">引擎</div>
+                <div class="value">Unity 2022 LTS</div>
+            </div>
+            <div class="meta-item">
+                <div class="label">类型</div>
+                <div class="value">3D 塔防 / 第三人称射击</div>
+            </div>
+            <div class="meta-item">
+                <div class="label">语言</div>
+                <div class="value">C#</div>
+            </div>
+        </div>
+
+        <div class="desc">
+            <h2>玩法简介</h2>
+            <ul>
+                <li>玩家操控主角击退来袭怪物，保护主塔不被摧毁</li>
+                <li>多波次生成、NavMesh 寻路、动画事件驱动攻击判定</li>
+                <li>炮塔放置/升级、武器系统、金币与波次结算</li>
+                <li>对象池管理特效，避免高频 Instantiate/Destroy 造成的 GC 抖动</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>源代码与运行说明详见
+                <a href="https://github.com/eee11133/tower-defense-game" target="_blank" rel="noopener">
+                    GitHub 仓库
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!--
+        极简脚本：检测视频能否加载，加载失败则保留占位提示，加载成功则隐藏占位。
+        不引入任何外部库，保证页面加载速度。
+    -->
+    <script>
+        (function () {
+            var video = document.querySelector('video');
+            var placeholder = document.getElementById('placeholder');
+            if (!video || !placeholder) return;
+
+            // 视频可以加载元数据时，说明文件存在，隐藏占位层
+            video.addEventListener('loadedmetadata', function () {
+                placeholder.style.display = 'none';
+            });
+
+            // 视频加载出错（文件不存在或格式不支持），保留占位提示
+            video.addEventListener('error', function () {
+                placeholder.style.display = 'flex';
+            });
+
+            // 主动尝试加载，触发上述事件
+            video.load();
+        })();
+    </script>
+</body>
+</html>
